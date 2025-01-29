@@ -3,24 +3,32 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
 import JobListings from './components/JobListings';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import MainLayout from './layout/MainLayout';
+import HomePage from './pages/HomePage';
+import JobsPage from './pages/JobsPage';
+import NotFound from './pages/NotFound';
 
 
 const App = () => {
 
   const router = createBrowserRouter(
-    
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />} >
+          <Route index element={<HomePage />} />
+          <Route path='/jobs' element={<JobsPage />} />
+          <Route path='*' element={<NotFound />} />
+      </Route>
+    )
   );
 
   return (
-  <>
 
-   <Navbar />
-   <Hero title=" Become a React Dev" description=" Find the React job that fits your skills and needs"/>
-<HomeCards />   
-<JobListings />   
+  <RouterProvider router={router} />
 
-  </>
+ 
+
+ 
   )
 }
 

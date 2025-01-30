@@ -8,6 +8,7 @@ import MainLayout from './layout/MainLayout';
 import HomePage from './pages/HomePage';
 import JobsPage from './pages/JobsPage';
 import NotFound from './pages/NotFound';
+import SingleJob from './pages/SingleJob';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/" element={<MainLayout />} >
           <Route index element={<HomePage />} />
           <Route path='/jobs' element={<JobsPage />} />
+          <Route path='/jobs/:id' element={<SingleJob />} />
           <Route path='*' element={<NotFound />} />
       </Route>
     )

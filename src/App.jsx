@@ -10,6 +10,7 @@ import JobsPage from './pages/JobsPage';
 import NotFound from './pages/NotFound';
 import SingleJob from './pages/SingleJob';
 import { DataLoader } from './components/DataLoader';
+import AddJob from './pages/AddJob';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path='/jobs' element={<JobsPage />} />
           <Route path='/jobs/:id' element={<SingleJob />} loader={DataLoader} />
+          <Route path='/add-job' element={<AddJob />} />
           <Route path='*' element={<NotFound />} />
       </Route>
     )

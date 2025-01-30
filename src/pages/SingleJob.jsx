@@ -1,11 +1,20 @@
 import React from 'react'
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const SingleJob = ({DeleteJob}) => {
-
-  const {id} = useParams();
+  const navigate = useNavigate();
+  // const {id} = useParams();
   const job = useLoaderData();
+
+  const onDeleteClick =  (jobId) => {
+
+    const confirm = window.confirm('Are you sure you want to delete this job?');
+    if (!confirm) return;
+    DeleteJob(jobId);
+    navigate('/jobs');
+  }
+  
 
   return (
    <>

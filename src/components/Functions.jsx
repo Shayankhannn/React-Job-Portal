@@ -8,7 +8,7 @@ export  const DataLoader = async ({params}) => {
 }
 
 
-// add job submit function
+// add / post job submit function
 export const AddJobSubmit = async (newJob) => {
 const res = await fetch('/api/jobs', {
     method:'POST',

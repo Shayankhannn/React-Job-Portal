@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AddJob = () => {
+const AddJob = ({AddJobSubmit}) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
         type: 'Full-Time',
@@ -20,13 +22,35 @@ const AddJob = () => {
         [name]: value
       }));
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        const newJob = {
+            title,
+            type,
+            location,
+            description,
+            salary,
+            company: {
+              name: companyName,
+              description: companyDescription,
+              contactEmail,
+              contactPhone,
+            },
+          };
+
+          AddJobSubmit(newJob);
+          return navigate('/jobs');
+        
+    };
   
     return (
     <>
       <section className="bg-indigo-50">
         <div className="container m-auto max-w-2xl py-24">
           <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
 
               <div className="mb-4">
@@ -132,7 +156,7 @@ const AddJob = () => {
                 <input
                   type="text"
                   id="company"
-                  name="company"
+                  name="companyName"
                   className="border rounded w-full py-2 px-3"
                   placeholder="Company Name"
                     required
@@ -150,7 +174,7 @@ const AddJob = () => {
                 </label>
                 <textarea
                   id="company_description"
-                  name="company_description"
+                  name="companyDescription"
                   className="border rounded w-full py-2 px-3"
                   rows="4"
                   placeholder="What does your company do?"
@@ -169,7 +193,7 @@ const AddJob = () => {
                 <input
                   type="email"
                   id="contact_email"
-                  name="contact_email"
+                  name="contactEmail"
                   className="border rounded w-full py-2 px-3"
                   placeholder="Email address for applicants"
                   required
@@ -187,7 +211,7 @@ const AddJob = () => {
                 <input
                   type="tel"
                   id="contact_phone"
-                  name="contact_phone"
+                  name="contactPhone"
                   className="border rounded w-full py-2 px-3"
                   placeholder="Optional phone for applicants"
                     value={contactPhone}

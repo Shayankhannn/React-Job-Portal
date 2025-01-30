@@ -2,7 +2,7 @@ import React from 'react'
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
-const SingleJob = () => {
+const SingleJob = ({DeleteJob}) => {
 
   const {id} = useParams();
   const job = useLoaderData();

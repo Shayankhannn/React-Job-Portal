@@ -1,34 +1,35 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import Hero from "../components/Hero";
+import React, { useState } from 'react'
+import Hero from '../components/Hero'
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const AddJob = ({AddJobSubmit}) => {
+const EditJob = ({EditJobSubmit}) => {
     const navigate = useNavigate();
+    const job = useLoaderData();
     const [formData, setFormData] = useState({
-        title: '',
-        type: 'Full-Time',
-        location: '',
-        description: '',
-        salary: 'Under $50K',
-        companyName: '',
-        companyDescription: '',
-        contactEmail: '',
-        contactPhone: ''
+        title:job.title ,
+        type: job.type,
+        location: job.location,
+        description: job.description,
+        salary: job.salary,
+        companyName: job.company.name,
+        companyDescription: job.company.description,
+        contactEmail: job.company.contactEmail,
+        contactPhone: job.company.contactPhone
     });
     const { title, type, location, description, salary, companyName, companyDescription, contactEmail, contactPhone } = formData;
   
     const handleChange = ({ target: { name, value }}) => {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value
-      }));
-    };
-
-    const handleSubmit = async (e) => {
+        setFormData((prev) => ({
+          ...prev,
+          [name]: value
+        }));
+      };
+   const handleSubmit = async (e) => {
         e.preventDefault();
     
-        const newJob = {
+        const editJob = {
+            id,
             title,
             type,
             location,
@@ -42,20 +43,20 @@ const AddJob = ({AddJobSubmit}) => {
             },
           };
 
-          AddJobSubmit(newJob);
-          toast.success('Job Added');
-          return navigate('/jobs');
+          EditJobSubmit(editJob);
+          toast.success('Job editted');
+          return navigate(`/jobs/${id}`);
         
     };
-  
-    return (
+
+  return (
     <>
-    <Hero title="Add Job"/>
+    <Hero title="Edit Job"/>
       <section className="bg-indigo-50">
         <div className="container m-auto max-w-2xl py-24">
           <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
             <form onSubmit={handleSubmit}>
-              <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
+              <h2 className="text-3xl text-center font-semibold mb-6">Edit Job</h2>
 
               <div className="mb-4">
                 <label htmlFor="type" className="block text-gray-700 font-bold mb-2">
@@ -229,7 +230,7 @@ const AddJob = ({AddJobSubmit}) => {
                   className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
-                  Add Job
+                  Edit Job
                 </button>
               </div>
             </form>
@@ -237,7 +238,7 @@ const AddJob = ({AddJobSubmit}) => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default AddJob;
+export default EditJob

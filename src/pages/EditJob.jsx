@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Hero from '../components/Hero'
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const EditJob = ({EditJobSubmit}) => {
     const navigate = useNavigate();
     const job = useLoaderData();
+    const {id} = useParams();
     const [formData, setFormData] = useState({
         title:job.title ,
         type: job.type,

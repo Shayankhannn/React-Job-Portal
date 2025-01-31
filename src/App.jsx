@@ -9,7 +9,7 @@ import HomePage from './pages/HomePage';
 import JobsPage from './pages/JobsPage';
 import NotFound from './pages/NotFound';
 import SingleJob from './pages/SingleJob';
-import { AddJobSubmit, DataLoader, DeleteJob, EditJobSubmit } from './components/Functions';
+import { AddJobSubmit, DataLoader, DeleteJob, EditJobSubmit } from './lib/Functions';
 import AddJob from './pages/AddJob';
 import EditJob from './pages/EditJob';
 

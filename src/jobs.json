@@ -85,22 +85,8 @@
       }
     },
     {
-      "id": "8f83",
-      "title": "test",
-      "type": "Full-Time",
-      "location": "test",
-      "description": "test",
-      "salary": "Under $50K",
-      "company": {
-        "name": "test",
-        "description": "test",
-        "contactEmail": "test@test.com",
-        "contactPhone": "test"
-      }
-    },
-    {
       "id": "b8c0",
-      "title": "test editing back",
+      "title": "editing working",
       "type": "Full-Time",
       "location": "test",
       "description": "test editing again",
@@ -110,6 +96,20 @@
         "description": "test",
         "contactEmail": "test@test.com",
         "contactPhone": "test"
+      }
+    },
+    {
+      "id": "8124",
+      "title": "completed",
+      "type": "Full-Time",
+      "location": "completed",
+      "description": "completed",
+      "salary": "Under $50K",
+      "company": {
+        "name": "completed",
+        "description": "completed",
+        "contactEmail": "completed@test.com",
+        "contactPhone": "completed"
       }
     }
   ]

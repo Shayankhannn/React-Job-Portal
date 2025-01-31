@@ -29,7 +29,7 @@ export const DeleteJob = async (id) => {
   const res = await fetch(`/api/jobs/${id}`, {
       method:'DELETE'
   });
-  toast.success('Job Deleted');
+  toast.success('Job Deleted SuccessFully');
   return;
 }
 

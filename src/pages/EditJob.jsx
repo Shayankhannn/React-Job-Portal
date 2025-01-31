@@ -45,7 +45,7 @@ const EditJob = ({EditJobSubmit}) => {
           };
 
           EditJobSubmit(editJob);
-          toast.success('Job editted');
+          toast.success('Job Updated Successfully');
           return navigate(`/jobs/${id}`);
         
     };
@@ -57,7 +57,7 @@ const EditJob = ({EditJobSubmit}) => {
         <div className="container m-auto max-w-2xl py-24">
           <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
             <form onSubmit={handleSubmit}>
-              <h2 className="text-3xl text-center font-semibold mb-6">Edit Job</h2>
+              <h2 className="text-3xl text-center font-semibold mb-6">Update Job</h2>
 
               <div className="mb-4">
                 <label htmlFor="type" className="block text-gray-700 font-bold mb-2">
@@ -231,7 +231,7 @@ const EditJob = ({EditJobSubmit}) => {
                   className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
-                  Edit Job
+                  Update Job
                 </button>
               </div>
             </form>
